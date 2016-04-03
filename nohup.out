@@ -1,0 +1,6 @@
+
+> redux-ru-tutorial@1.0.0 start /var/www/Projects/redux/code
+> node server.js
+
+==> 🌎  Listening on port 80. Open up http://localhost:80/ in your browser.
+webpack built 8b92110aedb2be2d3400 in 9155ms
