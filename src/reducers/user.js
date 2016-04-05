@@ -5,7 +5,9 @@ import {
 
 const initialState = {
     name: '',
-    error: ''
+    error: '',
+    handleLogin: function(){},
+    logged: false
 }
 
 export default function user(state = initialState, action) {

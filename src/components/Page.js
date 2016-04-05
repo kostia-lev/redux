@@ -5,13 +5,13 @@ export default class Page extends Component {
         this.props.getPhotos(+e.target.innerText)
     }
     render() {
-        const { year, photos, fetching, error } = this.props
+        const { year, photos, fetching, error, photosCame } = this.props
         const years = [2016,2015,2014,2013,2012,2011,2010]
         return <div className='ib page'>
             <p>
                 { years.map((item,index) =>  <button className='btn' key={index} onClick={::this.onYearBtnClick}>{item}</button> )}
             </p>
-            <h3>{year} год [{photos.length}]</h3>
+            {photosCame? <h3>{year} год [{photos.length}]</h3> : ''}
             { error ? <p className='error'> Во время загрузки фото произошла ошибка</p> : '' }
             {
                 fetching ?
