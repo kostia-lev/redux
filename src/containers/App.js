@@ -10,11 +10,12 @@ class App extends Component {
     render() {
         const { user, page } = this.props
         const { getPhotos } = this.props.pageActions
-        const { handleLogin } = this.props.userActions
+        const { handleLogin, handleLogout } = this.props.userActions
 
         return <div>
-            <Page photos={page.photos} year={page.year} getPhotos={getPhotos} fetching={page.fetching} photosCame={page.photosCame} error={page.error}/>
-            <User name={user.name} handleLogin={handleLogin} error={user.error} />
+            <Page photos={page.photos} year={page.year} getPhotos={getPhotos} fetching={page.fetching}
+                  photosCame={page.photosCame} error={page.error} name={user.name}/>
+            <User name={user.name} handleLogin={handleLogin} handleLogout={handleLogout} error={user.error} />
         </div>
     }
 }

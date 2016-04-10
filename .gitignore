@@ -1,0 +1,5 @@
+/.idea/*.name
+/.idea/*.iml
+/.idea/copyright/*.xml
+/.idea/*.xml
+/*.log

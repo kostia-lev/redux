@@ -1,11 +1,14 @@
 import {
     LOGIN_REQUEST,
     LOGIN_SUCCES,
-    LOGIN_FAIL
+    LOGIN_FAIL,
     LOGOUT_REQUEST,
-    LOGOUT_SUCCES,
-    LOGOUT_FAIL
+    LOGOUT_SUCCES
 } from '../constants/User'
+
+import {
+    GET_PHOTOS_RESET
+} from '../constants/Page'
 
 export function handleLogin() {
 
@@ -44,23 +47,18 @@ export function handleLogout() {
             type: LOGOUT_REQUEST
         })
 
-        VK.Auth.logout((r) => { // eslint-disable-line no-undef
-            if (r.session) {
-                let username = r.session.user.first_name;
+        VK.Auth.logout(() => { // eslint-disable-line no-undef
 
-                dispatch({
-                    type: LOGIN_SUCCES,
-                    payload: username
-                })
+            dispatch({
+                type: LOGOUT_SUCCES,
+                payload: 'some payload'
+            })
 
-            } else {
-                dispatch({
-                    type: LOGIN_FAIL,
-                    error: true,
-                    payload: new Error('Ошибка авторизации')
-                })
-            }
-        },4); // запрос прав на доступ к photo
+            dispatch({
+                type: GET_PHOTOS_RESET,
+                payload: 'some payload'
+            })
+        });
     }
 
 }
